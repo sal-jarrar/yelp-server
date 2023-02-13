@@ -1,6 +1,6 @@
-import { Query } from "./resolvers/Query.js";
-import Mutation from "./resolvers/Mutation.js";
-import { Campground } from "./resolvers/Campground.js";
+import { Query } from "./Query.js";
+import Mutation from "./Mutation.js";
+import { Campground } from "./Campgrounds.js";
 
 const resolvers = {
   Query,

@@ -1,8 +1,8 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import { ApolloServer } from "apollo-server";
-import typeDefs from "./schema/typeDefs.js";
-import resolvers from "./schema/resolvers.js";
+import typeDefs from "./schema/type-defs.js";
+import resolvers from "./schema/resolvers/index.js";
 import express from "express";
 import cors from "cors";
 import path from "path";
