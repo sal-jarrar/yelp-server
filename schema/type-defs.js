@@ -1,9 +1,10 @@
-import { gql } from "apollo-server";
+const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Query {
     getCapmgrounds: [Campground]!
     campground(campId: ID): Campground
+    # hello: String
   }
   type Mutation {
     createCampground(input: CampgroundInput): Campground!
@@ -86,4 +87,4 @@ const typeDefs = gql`
   }
 `;
 
-export default typeDefs;
+module.exports = typeDefs;

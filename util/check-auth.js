@@ -1,9 +1,9 @@
-import { AuthenticationError } from "apollo-server";
-import jwt from "jsonwebtoken";
+const { AuthenticationError } = require("apollo-server");
+const jwt = require("jsonwebtoken");
 const { verify, sign } = jwt;
 
-export default (context) => {
-  const authHeader = context.headers.authorization;
+const checkAuth = (context) => {
+  const authHeader = context.expressRequest.headers.authorization;
   if (authHeader) {
     // Bearer ....
     const token = authHeader.split("Bearer ")[1];
@@ -20,7 +20,7 @@ export default (context) => {
   throw new Error("Authorization header must be provided");
 };
 
-export const generateToken = (user) => {
+const generateToken = (user) => {
   return sign(
     {
       id: user.user_id,
@@ -31,3 +31,5 @@ export const generateToken = (user) => {
     { expiresIn: "1h" }
   );
 };
+
+module.exports = { checkAuth, generateToken };

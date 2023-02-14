@@ -1,5 +1,6 @@
-import pool from "../../config/db.js";
-export const Query = {
+const pool = require("../../config/db.js");
+const { checkAuth } = require("../../util/check-auth.js");
+const Query = {
   getCapmgrounds: async () => {
     const [rows] = await pool.query("SELECT * FROM campground");
 
@@ -31,4 +32,10 @@ export const Query = {
     console.log(res);
     return res;
   },
+  hello: async (_, args, context) => {
+    checkAuth(context);
+    return "done";
+  },
 };
+
+module.exports = Query;

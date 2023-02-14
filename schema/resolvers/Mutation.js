@@ -1,9 +1,9 @@
-import { UserInputError } from "apollo-server";
-import pool from "../../config/db.js";
-import checkAuth, { generateToken } from "../../util/check-auth.js";
-import bcrypt from "bcryptjs";
+const { UserInputError } = require("apollo-server");
+const pool = require("../../config/db.js");
+const { checkAuth, generateToken } = require("../../util/check-auth.js");
+const bcrypt = require("bcryptjs");
 
-export default {
+const Mutation = {
   createCampground: async (_, { input }, context) => {
     console.log(context);
     const user = checkAuth(context);
@@ -156,3 +156,5 @@ export default {
     return " REVEIW DELETED!";
   },
 };
+
+module.exports = Mutation;

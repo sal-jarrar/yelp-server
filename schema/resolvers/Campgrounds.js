@@ -1,5 +1,5 @@
-import pool from "../../config/db.js";
-export const Campground = {
+const pool = require("../../config/db.js");
+const Campground = {
   reviews: async ({ camp_id }) => {
     const [rows] = await pool.query(
       `SELECT *  FROM review WHERE camp_id='${camp_id}'`
@@ -17,3 +17,5 @@ export const Campground = {
     }
   },
 };
+
+module.exports = Campground;

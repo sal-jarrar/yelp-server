@@ -1,11 +1,10 @@
-import { Query } from "./Query.js";
-import Mutation from "./Mutation.js";
-import { Campground } from "./Campgrounds.js";
-
+const Query = require("./Query.js");
+const Campground = require("./Campgrounds.js");
+const Mutation = require("./Mutation.js");
 const resolvers = {
   Query,
   Mutation,
   Campground,
 };
 
-export default resolvers;
+module.exports = resolvers;
